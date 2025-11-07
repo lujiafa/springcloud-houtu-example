@@ -1,0 +1,11 @@
+[
+  {
+    "resource": "/user/findByUserName",    // 资源名
+    "limitApp": "default",                // 来源应用（default表示不区分）
+    "grade": 1,                           // 阈值类型（1=QPS）
+    "count": 10,                          // 单机阈值（10 QPS）
+    "strategy": 0,                        // 流控模式（0=直接）
+    "controlBehavior": 0,                 // 流控效果（0=快速失败）
+    "clusterMode": false                  // 是否集群
+  }
+]

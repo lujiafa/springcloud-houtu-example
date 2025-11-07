@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: gateway
+  cloud:
+    nacos:
+      server-addr: 10.30.102.85:8848
+      discovery:
+        log-name: naming-${spring.application.name}
+      config:
+        group: dev
+        name: ${spring.application.name}
+        file-extension: yml
+        refresh-enabled: true
+#    sentinel:
+#      enabled: false
+#      transport:
+#        dashboard: 10.30.102.85:8849

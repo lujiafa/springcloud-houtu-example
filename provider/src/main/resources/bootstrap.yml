@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: provider
+  cloud:
+    nacos:
+      server-addr: 127.0.0.1:8848
+      discovery:
+        log-name: naming-${spring.application.name}
+        ip: 127.0.0.1
+      config:
+        name: ${spring.application.name}
+        file-extension: yaml
+        refresh-enabled: true
+#    sentinel:
+#      enabled: false
+#      transport:
+#        dashboard: 10.30.102.85:8849

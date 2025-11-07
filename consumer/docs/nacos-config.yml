@@ -1,0 +1,55 @@
+server:
+  port: 8889
+  tomcat:
+    uri-encoding: UTF-8
+    max-threads: 1000
+    min-spare-threads: 30
+
+spring:
+  data:
+    redis:
+      database: 0
+      host: 127.0.0.1
+      port: 6379
+      password: redis123
+      timeout: 15s
+      lettuce:
+        pool:
+          max-active: 6
+          max-wait: 30s
+          max-idle: 6
+          min-idle: 2
+  cloud:
+    loadbalancer:
+      cache:
+        ttl: 5s
+      retry:
+        retry-on-all-operations: true
+        retryable-exceptions:
+          - java.net.ConnectException
+          - java.net.UnknownHostException
+          - java.net.http.HttpConnectTimeoutException
+    openfeign:
+      client:
+        config:
+          default:
+            connect-timeout: 1000
+    sentinel:
+      transport:
+        dashboard: 127.0.0.1:8858
+        port: 3${server.port}
+      datasource:
+        nacos:
+          server-addr: ${spring.cloud.nacos.server-addr}
+        # 作为配置Map的Key，用于协助生成Bean。参考SentinelDataSourceHandler
+        flow:
+          nacos:
+            data-id: ${spring.application.name}-flow-rule.json
+            group-id: SENTINEL_GROUP
+            type: json
+            rule-type: flow
+
+# 作为微服务Consumer端熔断等配置，并不会在节点异常时飘移。默认是false
+#feign:
+#  sentinel:
+#    enabled: true
