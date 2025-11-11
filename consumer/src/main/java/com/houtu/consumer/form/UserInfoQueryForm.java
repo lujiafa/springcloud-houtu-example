@@ -2,7 +2,7 @@ package com.houtu.consumer.form;
 
 import com.houtu.web.model.BaseForm;
 import com.houtu.web.validation.constroins.NotXss;
-import jakarta.validation.constraints.NotNull;
+import javax.validation.constraints.NotNull;
 import lombok.Data;
 
 @Data

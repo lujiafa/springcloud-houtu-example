@@ -10,7 +10,7 @@ spring:
       config:
         name: ${spring.application.name}
         file-extension: yaml
-        refresh-enabled: true
+        refresh-enabled: false
 #    sentinel:
 #      enabled: false
 #      transport:

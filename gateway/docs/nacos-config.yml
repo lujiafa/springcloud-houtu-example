@@ -6,8 +6,6 @@ server:
     max-threads: 1000
     min-spare-threads: 30
 
-
-
 spring:
   cloud:
     loadbalancer:
@@ -15,7 +13,8 @@ spring:
         ttl: 5s
     sentinel:
       transport:
-        dashboard: 127.0.0.1:8849
+        dashboard: 127.0.0.1:8858
+        port: 3${server.port}
     gateway:
       httpclient:
         connect-timeout: 1000
@@ -30,5 +29,5 @@ spring:
         - id: route-provider
           uri: lb://provider
           predicates:
-          - Method=POST
+            - Method=POST
 

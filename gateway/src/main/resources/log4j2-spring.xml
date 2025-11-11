@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration status="OFF">
 	<properties>
-		<property name="LOG_HOME">${spring:logging.file.path}</property>
+		<!--<property name="LOG_HOME">${spring:logging.file.path}</property>-->
+		<property name="LOG_HOME">E:/work/tmp/logs/gateway</property>
 	</properties>
 	<appenders>
 		<Console name="Console" target="SYSTEM_OUT">
