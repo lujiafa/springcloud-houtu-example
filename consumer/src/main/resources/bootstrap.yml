@@ -1,25 +1,8 @@
 spring:
   application:
     name: consumer
-  main:
-    allow-bean-definition-overriding: true
-  jackson:
-    default-property-inclusion: non_null
-  cloud:
-    nacos:
-      server-addr: 127.0.0.1:8848
-      discovery:
-        log-name: naming-${spring.application.name}
-      config:
-        name: ${spring.application.name}
-        file-extension: yaml
-        refresh-enabled: false
+  profiles:
+    active: dev
 
-
-
-houtu:
-  data:
-    security:
-      secretKey: 881100bb332299eeaa88cc66aaeebb99
 
 
