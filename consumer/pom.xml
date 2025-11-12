@@ -87,6 +87,10 @@
             <groupId>com.houtu</groupId>
             <artifactId>spring-cloud-houtu-alibaba-sentinel</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.alibaba.csp</groupId>
+            <artifactId>sentinel-datasource-nacos</artifactId>
+        </dependency>
 
         <dependency>
             <groupId>org.springframework.retry</groupId>
