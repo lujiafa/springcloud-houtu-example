@@ -36,11 +36,11 @@
 		</logger>
 		<logger name="org.springframework.cloud.alibaba.nacos" level="info" additivity="false">
 			<appender-ref ref="nacosLog"/>
-			<appender-ref ref="Console" />
+			<!--<appender-ref ref="Console" />-->
 		</logger>
 		<logger name="com.alibaba.nacos" level="info" additivity="false">
 			<appender-ref ref="nacosLog"/>
-			<appender-ref ref="Console" />
+			<!--<appender-ref ref="Console" />-->
 		</logger>
 	</loggers>
 </configuration>

@@ -3,3 +3,10 @@ spring:
     name: provider
   profiles:
     active: dev
+
+
+
+  cloud:
+    nacos:
+      discovery:
+        watch-delay: 3000

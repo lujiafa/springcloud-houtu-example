@@ -26,9 +26,12 @@ spring:
         max-idle: 6
         min-idle: 2
   cloud:
+    nacos:
+      discovery:
+        watch-delay: 3000
     loadbalancer:
       cache:
-        ttl: 5s
+        ttl: 3s
       retry:
         retry-on-all-operations: true
         retryable-exceptions:

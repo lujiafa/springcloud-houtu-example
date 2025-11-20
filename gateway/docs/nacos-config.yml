@@ -11,9 +11,12 @@ server:
 
 spring:
   cloud:
+    nacos:
+      discovery:
+        watch-delay: 3000
     loadbalancer:
       cache:
-        ttl: 5s
+        ttl: 3s
     sentinel:
       transport:
         dashboard: 127.0.0.1:8858

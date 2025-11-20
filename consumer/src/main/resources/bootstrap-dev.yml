@@ -12,6 +12,7 @@ spring:
       server-addr: 127.0.0.1:8848
       discovery:
         log-name: naming-${spring.application.name}
+        heart-beat-interval:
       config:
         name: ${spring.application.name}
         file-extension: yaml
