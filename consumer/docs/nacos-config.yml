@@ -69,8 +69,10 @@ management:
   endpoints:
     web:
       exposure:
-        include: health,prometheus
+        include: health,metrics,prometheus
   metrics:
     export:
       prometheus:
         enabled: true
+    enable:
+      lettuce: false
