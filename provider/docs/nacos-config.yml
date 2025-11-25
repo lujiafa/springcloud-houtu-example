@@ -13,4 +13,14 @@ server:
       pattern: "%h %l %u %t %r %s %b %D"
 
 
-
+management:
+  server:
+    port: 2${server.port}
+  endpoints:
+    web:
+      exposure:
+        include: health,prometheus
+  metrics:
+    export:
+      prometheus:
+        enabled: true
