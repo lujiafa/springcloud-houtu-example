@@ -76,3 +76,8 @@ management:
         enabled: true
     enable:
       lettuce: false
+    distribution:
+      percentiles:
+        http:
+          server:
+            requests: 0.95, 0.99

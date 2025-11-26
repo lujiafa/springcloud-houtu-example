@@ -85,6 +85,11 @@
 
         <dependency>
             <groupId>com.houtu</groupId>
+            <artifactId>houtu-actuator</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.houtu</groupId>
             <artifactId>spring-cloud-houtu-alibaba-sentinel</artifactId>
         </dependency>
         <dependency>
