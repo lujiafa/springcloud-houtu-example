@@ -1,6 +1,7 @@
 package com.houtu.consumer.controller;
 
 import com.alibaba.csp.sentinel.annotation.SentinelResource;
+import com.houtu.actuator.metrics.client.HttpClientMetric;
 import com.houtu.consumer.form.UserInfoQueryForm;
 import com.houtu.provider.dto.request.UserInfoQueryDTO;
 import com.houtu.provider.dto.response.UserInfoDTO;
@@ -8,6 +9,7 @@ import com.houtu.provider.service.IUserService;
 import com.houtu.provider.service.MockService;
 import com.houtu.springcloud.sentinel.common.DefaultFallback;
 import com.houtu.util.common.BeanUtils;
+import com.houtu.util.http.HttpClients;
 import com.houtu.web.model.ResponseData;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -33,6 +35,9 @@ public class UserController {
     public ResponseData<UserInfoDTO> findByUserName(@PathVariable("username") String username) {
 		UserInfoDTO userInfoDTO = new UserInfoDTO();
 		userInfoDTO.setUsername(username);
+		HttpClientMetric.metric();
+		HttpClients.HttpResponseData resp = HttpClients.get("https://repo.maven.apache.org/maven2/io/github/openfeign/feign-hc5", HttpClients.RequestConfig.build().param("username", username));
+		System.out.println(resp.getContent());
 		return ResponseData.success(userInfoDTO);
 	}
 
