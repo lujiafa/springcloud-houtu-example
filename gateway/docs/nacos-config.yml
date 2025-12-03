@@ -22,20 +22,22 @@ spring:
         dashboard: 127.0.0.1:8858
         port: 3${server.port}
     gateway:
-      httpclient:
-        connect-timeout: 1000
-        response-timeout: 3s
-      loadbalancer:
-        use404: true
-      routes:
-        - id: route-consumer
-          uri: lb://consumer
-          predicates:
-            - Method=GET
-        - id: route-provider
-          uri: lb://provider
-          predicates:
-            - Method=POST
+      server:
+        webflux:
+          httpclient:
+            connect-timeout: 1000
+            response-timeout: 3s
+          loadbalancer:
+            use404: true
+          routes:
+            - id: route-consumer
+              uri: lb://consumer
+              predicates:
+                - Method=GET
+            - id: route-provider
+              uri: lb://provider
+              predicates:
+                - Method=POST
 
 management:
   server:
@@ -44,7 +46,7 @@ management:
     web:
       exposure:
         include: health,metrics,prometheus
-  metrics:
-    export:
-      prometheus:
+  prometheus:
+    metrics:
+      export:
         enabled: true
