@@ -3,16 +3,14 @@ logging:
     path: E:/work/tmp/logs/gateway
 
 spring:
+  config:
+    import:
+      - nacos:${spring.application.name}.yaml?refreshEnabled=false
   cloud:
     nacos:
       server-addr: 127.0.0.1:8848
       discovery:
         log-name: naming-${spring.application.name}
-      config:
-        group: DEFAULT_GROUP
-        name: ${spring.application.name}
-        file-extension: yaml
-        refresh-enabled: false
     sentinel:
       log:
         dir: ${logging.file.path}

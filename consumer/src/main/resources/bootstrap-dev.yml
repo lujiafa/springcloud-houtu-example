@@ -7,16 +7,14 @@ spring:
     allow-bean-definition-overriding: true
   jackson:
     default-property-inclusion: non_null
+  config:
+    import:
+      - nacos:${spring.application.name}.yaml?refreshEnabled=false
   cloud:
     nacos:
       server-addr: 127.0.0.1:8848
       discovery:
         log-name: naming-${spring.application.name}
-        heart-beat-interval:
-      config:
-        name: ${spring.application.name}
-        file-extension: yaml
-        refresh-enabled: false
     sentinel:
       log:
         dir: ${logging.file.path}

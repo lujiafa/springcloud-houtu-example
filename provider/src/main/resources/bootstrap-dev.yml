@@ -3,13 +3,11 @@ logging:
     path: E:/work/tmp/logs/provider
 
 spring:
+  config:
+    import:
+      - nacos:${spring.application.name}.yaml?refreshEnabled=false
   cloud:
     nacos:
       server-addr: 127.0.0.1:8848
       discovery:
         log-name: naming-${spring.application.name}
-        ip: 127.0.0.1
-      config:
-        name: ${spring.application.name}
-        file-extension: yaml
-        refresh-enabled: false
