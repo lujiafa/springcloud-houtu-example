@@ -26,3 +26,10 @@ management:
         enabled: true
     enable:
       lettuce: false
+    distribution:
+      expiry:
+        "[http.server.requests]": 10s
+        "[http.client.requests]": 10s
+      percentiles:
+        "http.server.requests": 0.95, 0.99
+        "http.client.requests": 0.95, 0.99
