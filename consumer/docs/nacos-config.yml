@@ -71,11 +71,8 @@ management:
       exposure:
         include: health,metrics,prometheus
   metrics:
-    export:
-      prometheus:
-        enabled: true
     enable:
-      lettuce: false
+      "redis.lettuce": false
     distribution:
       expiry:
         "[http.server.requests]": 10s
@@ -83,13 +80,3 @@ management:
       percentiles:
         "[http.server.requests]": 0.95, 0.99
         "[http.client.requests]": 0.95, 0.99
-#    # 配置监控指标的百分位数，效果同上
-#    web:
-#      client:
-#        request:
-#          autotime:
-#            percentiles: 0.95, 0.99
-#      server:
-#        request:
-#          autotime:
-#            percentiles: 0.95, 0.99
