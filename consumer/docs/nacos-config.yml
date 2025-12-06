@@ -73,7 +73,7 @@ management:
       prometheus:
         enabled: true
     enable:
-      lettuce: false
+      "redis.lettuce": false
     distribution:
       expiry:
         "[http.server.requests]": 10s
