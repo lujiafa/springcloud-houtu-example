@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration packages="org.apache.skywalking.apm.toolkit.log.log4j.v2">
+	<properties>
+		<property name="LOG_HOME">${sys:LOG_PATH}</property>
+		<!--<property name="LOG_HOME">E:/work/tmp/logs/consumer</property>-->
+	</properties>
+	<!--
+		链路追踪场景时，需maven引入以下jar，或将jar包放到Skywalking-Agent相关目录下，[%traceId]才会生效且支持异步等等：
+		apm-toolkit-trace.jar
+		target.jar
+	-->
+	<appenders>
+		<Console name="Console" target="SYSTEM_OUT">
+			<ThresholdFilter level="debug" onMatch="ACCEPT" onMismatch="DENY" />
+			<PatternLayout pattern="%d|[%traceId]|%-5p|%t|%c:%L|%m%n" />
+		</Console>
+		<RollingFile name="appLog" fileName="${LOG_HOME}/application.log" filePattern="${LOG_HOME}/application.%d{yyyy-MM-dd}.log.%i.gz">
+			<PatternLayout pattern="%d|[%traceId]|%-5p|%t|%c{2.}:%L|%m%n" />
+			<Policies>
+				<TimeBasedTriggeringPolicy interval="1" />
+				<SizeBasedTriggeringPolicy size="200MB" />
+			</Policies>
+			<DefaultRolloverStrategy max="30"/>
+		</RollingFile>
+		<RollingFile name="nacosLog" fileName="${LOG_HOME}/nacos.log" filePattern="${LOG_HOME}/nacos.%d{yyyy-MM-dd}.log.%i.gz">
+			<PatternLayout pattern="%d|%-5p|%t|%c{2.}:%L|%m%n" />
+			<Policies>
+				<TimeBasedTriggeringPolicy interval="1" />
+				<SizeBasedTriggeringPolicy size="200MB" />
+			</Policies>
+			<DefaultRolloverStrategy max="30"/>
+		</RollingFile>
+	</appenders>
+
+	<loggers>
+		<root level="info">
+			<AppenderRef ref="Console" />
+		</root>
+		<logger name="com.houtu" level="info" additivity="false">
+			<appender-ref ref="appLog"/>
+			<appender-ref ref="Console" />
+		</logger>
+		<logger name="org.springframework.cloud.alibaba.nacos" level="info" additivity="false">
+			<appender-ref ref="nacosLog"/>
+			<appender-ref ref="Console" />
+		</logger>
+		<logger name="com.alibaba.nacos" level="info" additivity="false">
+			<appender-ref ref="nacosLog"/>
+			<appender-ref ref="Console" />
+		</logger>
+	</loggers>
+</configuration>

@@ -1,7 +1,6 @@
 package com.houtu.consumer.controller;
 
 import com.alibaba.csp.sentinel.annotation.SentinelResource;
-import com.houtu.actuator.metrics.client.HttpClientMetric;
 import com.houtu.consumer.form.UserInfoQueryForm;
 import com.houtu.provider.dto.request.UserInfoQueryDTO;
 import com.houtu.provider.dto.response.UserInfoDTO;
@@ -9,7 +8,7 @@ import com.houtu.provider.service.IUserService;
 import com.houtu.provider.service.MockService;
 import com.houtu.springcloud.sentinel.common.DefaultFallback;
 import com.houtu.util.common.BeanUtils;
-import com.houtu.util.http.HttpClients;
+import com.houtu.util.common.DateUtils;
 import com.houtu.web.model.ResponseData;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,6 +18,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import java.util.Date;
 
 @Controller
 @RequestMapping(value = "/user")
@@ -33,11 +34,11 @@ public class UserController {
 
 	@RequestMapping("/find/{username}")
     public ResponseData<UserInfoDTO> findByUserName(@PathVariable("username") String username) {
-		UserInfoDTO userInfoDTO = new UserInfoDTO();
-		userInfoDTO.setUsername(username);
-		HttpClientMetric.metric();
-		HttpClients.HttpResponseData resp = HttpClients.get("https://repo.maven.apache.org/maven2/io/github/openfeign/feign-hc5", HttpClients.RequestConfig.build().param("username", username));
-		System.out.println(resp.getContent());
+		UserInfoQueryDTO userInfoQueryDTO = new UserInfoQueryDTO();
+		userInfoQueryDTO.setUsername(username);
+		// HttpClientMetric.metric();
+		logger.info("请求/user/find/xx 接口，时间：{}", DateUtils.formatDateTime(new Date()));
+		UserInfoDTO userInfoDTO = userService.findByUserName(userInfoQueryDTO);
 		return ResponseData.success(userInfoDTO);
 	}
 
