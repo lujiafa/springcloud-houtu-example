@@ -1,7 +1,7 @@
 package com.houtu.consumer.form;
 
-import com.houtu.web.model.BaseForm;
-import com.houtu.web.validation.constroins.NotXss;
+import io.github.lujiafa.houtu.web.model.BaseForm;
+import io.github.lujiafa.houtu.web.validation.constroins.NotXss;
 import javax.validation.constraints.NotNull;
 import lombok.Data;
 

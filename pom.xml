@@ -15,7 +15,7 @@
         <maven.compiler.target>1.8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <com.houtu.dependencies.version>2.7.0-SNAPSHOT</com.houtu.dependencies.version>
+        <io.github.lujiafa.houtu.dependencies.version>2.7.1</io.github.lujiafa.houtu.dependencies.version>
         <skipTests>true</skipTests>
     </properties>
 
@@ -23,16 +23,16 @@
         <!-- 公共功能模块引入pom依赖 -->
         <dependencies>
             <dependency>
-                <groupId>com.houtu</groupId>
+                <groupId>io.github.lujiafa</groupId>
                 <artifactId>houtu-dependencies</artifactId>
-                <version>${com.houtu.dependencies.version}</version>
+                <version>${io.github.lujiafa.houtu.dependencies.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
             <dependency>
-                <groupId>com.houtu</groupId>
+                <groupId>io.github.lujiafa</groupId>
                 <artifactId>spring-cloud-houtu</artifactId>
-                <version>${com.houtu.dependencies.version}</version>
+                <version>${io.github.lujiafa.houtu.dependencies.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>

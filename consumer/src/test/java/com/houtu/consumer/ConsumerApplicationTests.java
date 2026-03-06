@@ -4,8 +4,8 @@ package com.houtu.consumer;
 //import com.auth0.jwt.algorithms.Algorithm;
 //import com.auth0.jwt.interfaces.DecodedJWT;
 
-import com.houtu.util.common.JsonUtils;
-import com.houtu.util.data.ByteUtils;
+import io.github.lujiafa.houtu.util.common.JsonUtils;
+import io.github.lujiafa.houtu.util.data.ByteUtils;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

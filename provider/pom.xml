@@ -52,16 +52,16 @@
         </dependency>
 
         <dependency>
-            <groupId>com.houtu</groupId>
+            <groupId>io.github.lujiafa</groupId>
             <artifactId>spring-cloud-houtu-feign</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.houtu</groupId>
+            <groupId>io.github.lujiafa</groupId>
             <artifactId>spring-cloud-houtu-discovery</artifactId>
         </dependency>
 
         <dependency>
-            <groupId>com.houtu</groupId>
+            <groupId>io.github.lujiafa</groupId>
             <artifactId>houtu-web</artifactId>
         </dependency>
 

@@ -6,10 +6,10 @@ import com.houtu.provider.dto.request.UserInfoQueryDTO;
 import com.houtu.provider.dto.response.UserInfoDTO;
 import com.houtu.provider.service.IUserService;
 import com.houtu.provider.service.MockService;
-import com.houtu.springcloud.sentinel.common.DefaultFallback;
-import com.houtu.util.common.BeanUtils;
-import com.houtu.util.common.DateUtils;
-import com.houtu.web.model.ResponseData;
+import io.github.lujiafa.houtu.springcloud.sentinel.common.DefaultFallback;
+import io.github.lujiafa.houtu.util.common.BeanUtils;
+import io.github.lujiafa.houtu.util.common.DateUtils;
+import io.github.lujiafa.houtu.web.model.ResponseData;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.Date;
 
 @Controller
@@ -43,7 +44,8 @@ public class UserController {
 	}
 
 	@RequestMapping("/findByUserName")
-    public ResponseData<UserInfoDTO> findByUserName(UserInfoQueryForm requestForm) {
+    public ResponseData<UserInfoDTO> findByUserName(HttpServletRequest request, UserInfoQueryForm requestForm) {
+		System.out.println(request.getHeader("X-Hint"));
 		UserInfoQueryDTO userInfoQueryDTO = BeanUtils.smartCopyProperties(requestForm, UserInfoQueryDTO.class);
 		UserInfoDTO userInfoDTO = userService.findByUserName(userInfoQueryDTO);
 		if (userInfoDTO == null) {

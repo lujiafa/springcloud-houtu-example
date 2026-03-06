@@ -49,7 +49,7 @@
         </dependency>
 
         <dependency>
-            <groupId>com.houtu</groupId>
+            <groupId>io.github.lujiafa</groupId>
             <artifactId>spring-cloud-houtu-loadbalancer</artifactId>
         </dependency>
 
@@ -58,7 +58,7 @@
             <artifactId>spring-cloud-alibaba-sentinel-gateway</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.houtu</groupId>
+            <groupId>io.github.lujiafa</groupId>
             <artifactId>spring-cloud-houtu-alibaba-sentinel</artifactId>
         </dependency>
 
