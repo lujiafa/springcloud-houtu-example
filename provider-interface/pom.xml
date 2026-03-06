@@ -19,13 +19,13 @@
         </dependency>
 
         <dependency>
-            <groupId>com.houtu</groupId>
+            <groupId>io.github.lujiafa</groupId>
             <artifactId>spring-cloud-houtu-feign</artifactId>
             <scope>provided</scope>
         </dependency>
 
         <dependency>
-            <groupId>com.houtu</groupId>
+            <groupId>io.github.lujiafa</groupId>
             <artifactId>houtu-web</artifactId>
         </dependency>
 

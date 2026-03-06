@@ -1,16 +1,17 @@
 package com.houtu.consumer.controller;
 
 import com.alibaba.csp.sentinel.annotation.SentinelResource;
-import com.houtu.actuator.metrics.client.HttpClientMetric;
+import io.github.lujiafa.houtu.actuator.metrics.client.HttpClientMetric;
 import com.houtu.consumer.form.UserInfoQueryForm;
 import com.houtu.provider.dto.request.UserInfoQueryDTO;
 import com.houtu.provider.dto.response.UserInfoDTO;
 import com.houtu.provider.service.IUserService;
 import com.houtu.provider.service.MockService;
-import com.houtu.springcloud.sentinel.common.DefaultFallback;
-import com.houtu.util.common.BeanUtils;
-import com.houtu.util.http.HttpClients;
-import com.houtu.web.model.ResponseData;
+import io.github.lujiafa.houtu.springcloud.sentinel.common.DefaultFallback;
+import io.github.lujiafa.houtu.util.common.BeanUtils;
+import io.github.lujiafa.houtu.util.http.HttpClients;
+import io.github.lujiafa.houtu.util.web.WebUtils;
+import io.github.lujiafa.houtu.web.model.ResponseData;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,6 +44,7 @@ public class UserController {
 
 	@RequestMapping("/findByUserName")
     public ResponseData<UserInfoDTO> findByUserName(UserInfoQueryForm requestForm) {
+		System.out.println(WebUtils.getRequest().getHeader("X-Hint"));
 		UserInfoQueryDTO userInfoQueryDTO = BeanUtils.smartCopyProperties(requestForm, UserInfoQueryDTO.class);
 		UserInfoDTO userInfoDTO = userService.findByUserName(userInfoQueryDTO);
 		if (userInfoDTO == null) {

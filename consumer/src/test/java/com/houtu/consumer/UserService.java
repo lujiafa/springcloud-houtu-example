@@ -1,9 +1,9 @@
 package com.houtu.consumer;
 
-import com.houtu.data.security.annotation.SecurityParam;
-import com.houtu.data.security.annotation.SecurityWatch;
-import com.houtu.data.security.support.SecurityObject;
-import com.houtu.util.common.JsonUtils;
+import io.github.lujiafa.houtu.data.security.annotation.SecurityParam;
+import io.github.lujiafa.houtu.data.security.annotation.SecurityWatch;
+import io.github.lujiafa.houtu.data.security.support.SecurityObject;
+import io.github.lujiafa.houtu.util.common.JsonUtils;
 import lombok.Data;
 import org.springframework.stereotype.Service;
 

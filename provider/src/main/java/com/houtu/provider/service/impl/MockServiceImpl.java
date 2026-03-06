@@ -1,9 +1,9 @@
 package com.houtu.provider.service.impl;
 
-import com.houtu.core.exception.BusinessException;
+import io.github.lujiafa.houtu.core.exception.BusinessException;
 import com.houtu.provider.service.MockService;
-import com.houtu.springcloud.feign.anotation.AutoFeign;
-import com.houtu.web.model.ResponseData;
+import io.github.lujiafa.houtu.springcloud.feign.anotation.AutoFeign;
+import io.github.lujiafa.houtu.web.model.ResponseData;
 import org.springframework.stereotype.Service;
 
 @Service
