@@ -11,3 +11,5 @@ spring:
       server-addr: 127.0.0.1:8848
       discovery:
         log-name: naming-${spring.application.name}
+      config:
+        namespace: 35

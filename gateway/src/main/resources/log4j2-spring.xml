@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<configuration status="OFF">
+<configuration status="WARN">
 	<properties>
 		<property name="LOG_HOME">${sys:LOG_PATH}</property>
 		<!--<property name="LOG_HOME">E:/work/tmp/logs/gateway</property>-->
@@ -31,7 +31,7 @@
 		<root level="info">
 			<appender-ref ref="Console" />
 		</root>
-		<logger name="com.houtu" level="info" additivity="false">
+		<logger name="com.xx" level="info" additivity="false">
 			<appender-ref ref="appLog"/>
 		</logger>
 		<logger name="org.springframework.cloud.alibaba.nacos" level="info" additivity="false">

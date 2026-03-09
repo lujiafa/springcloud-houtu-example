@@ -1,4 +1,4 @@
-package com.houtu.consumer;
+package com.xx.consumer;
 
 import io.github.lujiafa.houtu.data.security.annotation.SecurityParam;
 import io.github.lujiafa.houtu.data.security.annotation.SecurityWatch;
