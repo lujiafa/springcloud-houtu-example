@@ -9,6 +9,7 @@ spring:
       discovery:
         log-name: naming-${spring.application.name}
       config:
+        namespace: 27
         group: DEFAULT_GROUP
         name: ${spring.application.name}
         file-extension: yaml

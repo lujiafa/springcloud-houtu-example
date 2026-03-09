@@ -13,3 +13,4 @@ spring:
         name: ${spring.application.name}
         file-extension: yaml
         refresh-enabled: false
+        namespace: 27
